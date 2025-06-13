@@ -1,0 +1,34 @@
+BasedOnStyle: LLVM  # Используем как основу, потом переопределим всё вручную
+
+# Отступы и структура
+IndentWidth: 8
+UseTab: Never
+BreakBeforeBraces: Allman   # Всегда новая строка для {
+AllowShortIfStatementsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: TopLevel
+
+# Выравнивание
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignConsecutiveMacros: true
+AlignConsecutiveBitFields: true
+AlignTrailingComments: true
+ColumnLimit: 80
+
+# Пробелы
+SpaceBeforeParens: ControlStatements
+SpaceInEmptyParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesInAngles: false
+SpaceAfterCStyleCast: true
+
+# Импорт, includes
+SortIncludes: false
+IncludeBlocks: Preserve
+
+# Комментарии
+IndentWrappedFunctionNames: false
+ReflowComments: false
