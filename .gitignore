@@ -23,7 +23,7 @@ build.ninja
 
 /build/
 /bin/
-/lib/
+/lib/K
 /dist/
 /tmp/
 /*.log
