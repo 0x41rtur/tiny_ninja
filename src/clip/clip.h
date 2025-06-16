@@ -3,11 +3,11 @@
 
 struct command
 {
-        char *ext;
-        char *dir;
+        const char *ext;
+        const char *dir;
 };
 
-struct command *
+const struct command **
 clip(int argc, char **argv);
 struct command *
 copy_command(const struct command *);

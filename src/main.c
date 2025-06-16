@@ -1,14 +1,22 @@
 #include "clip/clip.h"
 #include "common/common.h"
-#include "sapper/sapper.h"
+#include "executer/executer.h"
 
 int
 main(const int argc, char **argv)
 {
-        // результат или выход
-        const struct command *command = clip(argc, argv);
-        // результат или выход
-        struct tnt **         tnt     = find_tnt(command);
-        apply_tnt(tnt);
+        const struct command **command = clip(argc, argv);
+        const struct command **cmd = command;
+        while (NULL != *cmd)
+        {
+                struct tnt **tnt = find_tnt(*cmd);
+
+                if (NULL != tnt && -1 == execute(tnt))
+                {
+                        break;
+                }
+                ++cmd;
+        }
+        // free
         return 0;
 }

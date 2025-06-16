@@ -29,12 +29,15 @@ endif()
 add_executable(${NAME} src/main.c
         src/clip/clip.c
         src/clip/clip.h
-        src/sapper/sapper.c
-        src/sapper/sapper.h
+        src/executer/executer.c
+        src/executer/executer.h
         src/common/common.c
         src/common/common.h
         src/common/console.c
-        src/common/console.h)
+        src/common/console.h
+        src/fs/fs.c
+        src/fs/fs.c
+        src/fs/fs.h)
 
 target_include_directories(${NAME} PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
