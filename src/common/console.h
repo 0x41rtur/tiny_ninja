@@ -4,13 +4,13 @@
 void
 panic_unexpected(void);
 void
-clip_confirm_exit(const char *ext, const char *dir);
-void
 clip_info(void);
 void
 clip_e_error(void);
 void
 clip_d_error(void);
+void
+clip_m_error(void);
 void
 memory_error(void);
 void
@@ -22,7 +22,7 @@ rename_error(const char *src, const char *dst);
 void
 file_exists_error(const char *path);
 void
-no_matching_files_error(const char *ext, const char *dir);
+no_matching_files_error(const char *ext);
 void
 open_dir_error(const char *path);
 void
