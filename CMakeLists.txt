@@ -36,7 +36,6 @@ add_executable(${NAME} src/main.c
         src/common/console.c
         src/common/console.h
         src/fs/fs.c
-        src/fs/fs.c
         src/fs/fs.h)
 
 target_include_directories(${NAME} PRIVATE
