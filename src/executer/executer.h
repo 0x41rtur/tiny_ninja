@@ -1,6 +1,8 @@
 #ifndef SAPPER_H
 #define SAPPER_H
 
+#include "fs.h"
+
 enum execute_error
 {
         EXECUTOR_OK,
@@ -12,6 +14,6 @@ enum execute_error
 };
 
 int
-execute(int* error, const struct tnt *tnt);
+execute(int* error, const struct target *target);
 
 #endif //SAPPER_H

@@ -25,8 +25,8 @@ file(GLOB CLIP_TEST_SOURCES
 add_executable(test_clip ${CLIP_TEST_SOURCES})
 
 target_include_directories(test_clip SYSTEM PRIVATE ${CMAKE_SOURCE_DIR}/src/lib/unity)
-add_library(unitylib STATIC ${CMAKE_SOURCE_DIR}/src/lib/unity/unity.c)
+add_library(unityclip STATIC ${CMAKE_SOURCE_DIR}/src/lib/unity/unity.c)
 
-target_link_libraries(test_clip clip unitylib)
+target_link_libraries(test_clip clip unityclip)
 
 add_test(NAME test_clip COMMAND test_clip)

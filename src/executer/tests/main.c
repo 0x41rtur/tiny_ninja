@@ -1,6 +1,6 @@
-#include "unity.h"
-
 #include "test_executor.h"
+
+#include "unity.h"
 
 void
 setUp()
@@ -21,6 +21,7 @@ main(void)
         RUN_TEST(test_execute_file_exists);
         RUN_TEST(test_execute_rename_failure);
         RUN_TEST(test_execute_success);
+
         UNITY_END();
         return 0;
 }

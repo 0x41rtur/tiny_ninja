@@ -28,7 +28,7 @@ test_execute_bad_directory(void)
             .ext = "txt",
             .dir = "/\x01\xFF" // некорректный путь для make_dir_recursive
         };
-        const struct tnt t   = {.name = TMP_FILE_NAME, .cmd = &cmd};
+        const struct target t   = {.name = TMP_FILE_NAME, .cmd = &cmd};
         int              err = 0;
         TEST_ASSERT_EQUAL_INT(-1, execute(&err, &t));
         TEST_ASSERT_EQUAL_INT(EXECUTOR_ERR_BAD_ARG, err);
@@ -41,7 +41,7 @@ test_execute_concat_failure(void)
             .ext = "txt",
             .dir = NULL // concat упадёт, если не проверяет на NULL
         };
-        const struct tnt t   = {.name = TMP_FILE_NAME, .cmd = &cmd};
+        const struct target t   = {.name = TMP_FILE_NAME, .cmd = &cmd};
         int              err = 0;
         TEST_ASSERT_EQUAL_INT(-1, execute(&err, &t));
         TEST_ASSERT_EQUAL_INT(EXECUTOR_ERR_CREATE_PATH, err);
@@ -62,7 +62,7 @@ test_execute_file_exists(void)
         fprintf(existing, "conflict");
         fclose(existing);
         struct command   cmd = {.ext = "txt", .dir = TMP_DIR_NAME};
-        const struct tnt t   = {.name = TMP_FILE_NAME, .cmd = &cmd};
+        const struct target t   = {.name = TMP_FILE_NAME, .cmd = &cmd};
         int              err = 0;
         TEST_ASSERT_EQUAL_INT(-1, execute(&err, &t));
         TEST_ASSERT_EQUAL_INT(EXECUTOR_ERR_FILE_EXISTS, err);
@@ -76,7 +76,7 @@ void
 test_execute_rename_failure(void)
 {
         struct command   cmd = {.ext = "txt", .dir = TMP_DIR_NAME};
-        const struct tnt t   = {.name = "nonexistent_input.txt", // файла нет
+        const struct target t   = {.name = "nonexistent_input.txt", // файла нет
                                 .cmd  = &cmd};
         mkdir(TMP_DIR_NAME, 0755);
         int err = 0;
@@ -93,7 +93,7 @@ test_execute_success(void)
         fprintf(f, "success!");
         fclose(f);
         struct command   cmd = {.ext = "txt", .dir = TMP_DIR_NAME};
-        const struct tnt t   = {.name = TMP_FILE_NAME, .cmd = &cmd};
+        const struct target t   = {.name = TMP_FILE_NAME, .cmd = &cmd};
         mkdir(TMP_DIR_NAME, 0755);
         int err = 0;
         TEST_ASSERT_EQUAL_INT(0, execute(&err, &t));

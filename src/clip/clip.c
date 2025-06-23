@@ -88,8 +88,8 @@ clip(int *error, const int argc, char **argv)
                         *error = CLIP_PANIC;
                         goto inner_cleanup;
                 }
-                cmd->ext = copy_str(extension);
-                cmd->dir = copy_str(directory);
+                cmd->ext = strcopy(extension);
+                cmd->dir = strcopy(directory);
                 if (NULL == cmd->ext || NULL == cmd->dir)
                 {
                         *error = CLIP_PANIC;
@@ -139,8 +139,8 @@ copy_command(int *error, const struct command *cmd)
                 *error = CLIP_PANIC;
                 return NULL;
         }
-        copy->ext = copy_str(cmd->ext);
-        copy->dir = copy_str(cmd->dir);
+        copy->ext = strcopy(cmd->ext);
+        copy->dir = strcopy(cmd->dir);
         if (NULL == copy->ext || NULL == copy->dir)
         {
                 free((void *) copy->dir);
