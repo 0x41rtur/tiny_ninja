@@ -46,6 +46,25 @@ cmake -B build
 cmake --build build
 ```
 
+Полная сборка (включая тесты)
+
+```bash
+git clone https://github.com/yourusername/tiny_ninja.git
+cd tiny_ninja
+cmake -B build
+cmake --build build
+```
+
+Только исполняемый файл (tn) без тестов
+
+```bash
+git clone https://github.com/yourusername/tiny_ninja.git
+cd tiny_ninja
+cmake -B build -DBUILD_TESTING=OFF
+cmake --build build --target tn
+```
+
+
 ## 🔧 Установка в систему (опционально):
 
 ```bash
@@ -62,8 +81,8 @@ tn -e jpg -d images
 ```bash
 git clone https://github.com/yourusername/tiny_ninja.git && \
 cd tiny_ninja && \
-cmake -B build && \
-cmake --build build && \
+cmake -B build -DBUILD_TESTING=OFF && \
+cmake --build build --target tn && \
 sudo cp build/tn /usr/local/bin/tn
 ```
 
