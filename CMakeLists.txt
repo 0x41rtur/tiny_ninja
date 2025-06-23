@@ -7,8 +7,6 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
 
-set(CMAKE_BUILD_TYPE Debug)
-
 if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
     add_compile_options(
             -Wall
@@ -24,20 +22,23 @@ if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
             -Wcast-align
             -Wundef
     )
-endif()
+endif ()
 
-add_executable(${NAME} src/main.c
-        src/clip/clip.c
-        src/clip/clip.h
-        src/executer/executer.c
-        src/executer/executer.h
-        src/common/common.c
-        src/common/common.h
-        src/common/console.c
-        src/common/console.h
-        src/fs/fs.c
-        src/fs/fs.h)
+enable_testing()
 
-target_include_directories(${NAME} PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
-)
+include_directories(${CMAKE_SOURCE_DIR}/lib/unity)
+
+# Добавляем все модули
+add_subdirectory(src/clip)
+add_subdirectory(src/common)
+add_subdirectory(src/fs)
+add_subdirectory(src/executer)
+add_subdirectory(src/console)
+
+# Главный исполняемый файл
+add_executable(tn src/main.c)
+
+# Линкуем его с нужными модулями
+target_link_libraries(tn clip common fs executer)
+
+
