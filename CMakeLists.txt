@@ -33,7 +33,6 @@ add_subdirectory(src/clip)
 add_subdirectory(src/common)
 add_subdirectory(src/fs)
 add_subdirectory(src/executer)
-add_subdirectory(src/console)
 
 # Главный исполняемый файл
 add_executable(tn src/main.c)
