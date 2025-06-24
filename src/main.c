@@ -15,9 +15,14 @@ main(const int argc, char **argv)
 {
         int                    clip_error = CLIP_OK;
         const struct command **commands   = clip(&clip_error, argc, argv);
+        if (clip_error == CLIP_USAGE_OPT)
+        {
+                usage(argv[0]);
+                return EXIT_SUCCESS;
+        }
         if (commands == NULL || clip_error != CLIP_OK)
         {
-                fprintf(stderr, "Ошибка разбора аргументов\n");
+                fprintf(stderr, "Ошибка разбора аргументов\n\n");
                 usage(argv[0]);
                 return EXIT_FAILURE;
         }

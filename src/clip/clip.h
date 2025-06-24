@@ -15,7 +15,8 @@ enum clip_error
         CLIP_ERR_BAD_D_OPT,
         CLIP_ERR_BAD_M_OPT,
         CLIP_PANIC,
-        CLIP_UNEXPECTED_OPT
+        CLIP_UNEXPECTED_OPT,
+        CLIP_USAGE_OPT
 };
 
 const struct command **

@@ -75,6 +75,9 @@ clip(int *error, const int argc, char **argv)
                         }
                         return c;
                 }
+                case 'h':
+                        *error = CLIP_USAGE_OPT;
+                        return NULL;
                 default:
                         *error = CLIP_UNEXPECTED_OPT;
                         return NULL;
