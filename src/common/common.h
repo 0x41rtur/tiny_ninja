@@ -4,16 +4,18 @@
 #include <stddef.h>
 
 char *
-copy_str(const char *s);
+strcopy(const char *s);
 char *
-copy_str_n(const char *s, size_t l);
+strncopy(const char *s, size_t l);
 char *
-extension(const char *filename);
+find_ext_suffix(const char *filename);
 int
 split(const char *s, char **before, char **after, char d);
 int
-is_file(const char *filename);
+is_regular_file(const char *filename);
 char *
 concat(const char *first, ...);
+char* strtok_iso(char *str, const char* delim, char **saverptr);
+char **strtokarr(const char *str, int delim);
 
 #endif //COMMON_H
